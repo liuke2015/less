@@ -1,0 +1,41 @@
+Less中嵌套
+  -最有意思的小东西了
+  -两种用法
+     .&对尾类使用
+       -hover或focus
+      .对连接的使用
+       -&-item
+       
+  //例题
+  <ul class="list">
+      <li><a href="#">测试文字</a><span>2016-05-12</span></li>
+      <li><a href="#">测试文字</a><span>2016-05-12</span></li>
+      <li><a href="#">测试文字</a><span>2016-05-12</span></li>
+      <li><a href="#">测试文字</a><span>2016-05-12</span></li>
+      <li><a href="#">测试文字</a><span>2016-05-12</span></li>
+  </ul>
+  
+  .list{
+      width:600px;
+      margin:30px auto;
+      padding:0;
+      list-style:none;
+      
+      li{
+          height:30px;
+          line-height:30px;
+          background-color:pink;
+          margin-bottom:5px;
+      }
+      
+      a{//不要嵌套在li里，嵌套太深影响性能
+          float:left;
+          //& 代表他的上一层选择器
+          &:hover{
+              color:red;
+          }
+      }
+      span{
+          float:left;
+      }
+  }
