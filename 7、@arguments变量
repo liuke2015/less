@@ -1,0 +1,16 @@
+//.@arguments包含了所有传递进来的参数。
+//.如果你不想单独处理每一个参数的话就可以像这样写：
+
+
+//例子
+.border_arg(@w:30px,@c:red,@xx:solid){
+    border:@arguments;
+}
+
+.test_arguments{
+    .border_arg();//（）里可以什么都不写
+}
+
+.test_arguments{
+    .border_arg(40px);//（）里可以更改任意一个值
+}
