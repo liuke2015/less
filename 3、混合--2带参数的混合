@@ -1,0 +1,33 @@
+//1、混合-可带参数
+
+.border_02(@bor-w){
+    border:@bor-w solid yellow;
+}
+
+.test_hunhe{
+    .border_02(30px);
+}
+
+//2、混合-带默认值
+.border_03(@bor-w:10px){
+    border:@bor-w solid red;
+}
+.test_hunhe_02{
+    .border_03();//此处有默认值为10px，（）里可以不写值，但是必须要写（）
+}
+.test_hunhe_03{
+    .border_03(20px);//此处不用原有的默认值10px，而是在（）里添加了新的值
+}
+
+//3、混合的例子
+.border-radius(@radius:5px){
+    -webkit-border-radius:@radius;
+    -moz-border-radius:@radius;
+    border-radius:@radius;
+}
+.radius-test{
+    .border-radius();//注意：一定要写（）
+}
+.radius-test2{
+    .border-radius(10px);//改变默认值
+}
