@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+.reset(){
+    *{margin:0;padding:0;}
+    ul,ol{list-style:none;}
+    a{text-decoration:none}
+    img{border:none;}
+}
+
+//清除浮动
+/*.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.clearfix{
+    zoom:1;
+}
+//这样写不行，after没有编译进入.content，换下面的写法
+*/
+.clearfix{
+    &:after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+    zoom:1;
+}
+
+.bc(){
+   margin-left:auto;
+   margin-right:auto;
+}
+
+.reset();
+
+.font14(){
+    font-size:14px;
+}
+@fs:14px;//同上
+
+
+//列表总宽度
+@td_width:616px;
+
+.tudou_main{
+    width:@td_width;
+    .bc();
+}
+
+.title{
+    @h:62px;
+    @border_c:#d0d0d0;
+    height:@h;
+    line-height:@h;
+    border-top:solid 1px @border_c;
+    
+    margin-top:20px;
+    
+    h3{
+        float:left;
+        color:#575757;
+        font:22px/@h "微软雅黑";
+        width:106px;
+        border-top:solid 2px #f97374;
+        margin-top:-1px;
+        position:relative;//为了兼容IE6的margin-top:-1,加上的这句
+        height:@h-1;//-（上边线2像素）+（margin-top的1像素）
+        
+    }
+    @color:#575757;
+    &_nav{  //相当于title_nav
+        float:right;
+        font14();
+        //或者：font-size:@fs;
+        color:@color;
+        
+        li{
+            float:left;
+        }
+        span{
+            margin:0 11px;
+        }
+        a{
+            color:@color;
+            &:hover{
+                color:red;
+            }
+        }
+    }
+}
+
+//内容
+ @item_mr:32px;
+.content{
+    margin-right:-@item_mr;
+}
+.item{
+    @w:130px;
+    @h:164px;
+    @img_h:78px;
+   
+    
+    width:@w;
+    height:@h;
+    float:left;
+    margin-right:@item_mr;
+    &_img{
+        height:@img_h;
+        img{
+            width:@w;
+            height:@img_h;
+            display:block;
+        }
+        span{
+            position:absolute;
+            right:0;
+            bottom:0;
+            width:35px;
+            height:18px;
+            line-height:18px;
+            font-size:@fs-2;
+            color:#fff;
+            background-position:0 0;
+            background-repeat:no-repeat;
+            text-indent:9px;
+        }
+        .cq{
+            background-image:url(../img/cq/png);
+        }
+        .gq{
+             background-image:url(../img/gq/png);
+        }
+    }
+    
+    //item_list
+    &_list{
+        line-height:22px;
+        font-size:@fs-2;
+        a{
+            color:#666;
+            &:hover{
+                color:red;
+            }
+        }
+        .userName,.play,.mess{
+            padding-left:17px;
+            background-position:left center;
+            background-repeat:no-repeat;
+        }
+        .userName{
+            background-image:url(../img/01.jpg);
+            padding-top:1px;//图片14px,文字13px，图片跟着文字的高度，加padding撑高1px
+        }
+        .play{
+            background-image:url(../img/02.jpg);
+            margin-right:4px;
+        }
+        .mess{
+            background-image:url(../img/03.jpg);
+        }
+    }
+}
