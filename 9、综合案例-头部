@@ -1,43 +1,10 @@
 @charset "utf-8";
 
-.reset(){
-    *{margin:0;padding:0;}
-    ul,ol{list-style:none;}
-    a{text-decoration:none}
-    img{border:none;}
-}
+@import "ku";//ku.less，可以不加扩展名.less
 
-//清除浮动
-/*.clearfix:after{
-    content:"";
-    display:block;
-    clear:both;
-}
-.clearfix{
-    zoom:1;
-}
-//这样写不行，after没有编译进入.content，换下面的写法
-*/
-.clearfix{
-    &:after{
-        content:"";
-        display:block;
-        clear:both;
-    }
-    zoom:1;
-}
-
-.bc(){
-   margin-left:auto;
-   margin-right:auto;
-}
-
-.reset();
-
-.font14(){
-    font-size:14px;
-}
-@fs:14px;//同上
+@import (less) "a.css"//css文件,要加上(less)才能把文件a里的css代码直接编译进入该文件，并且写在哪个位置，就编译在哪个位置
+                     //否则是以@import "a.css";的形式出现在文件最顶端
+                     
 
 
 //列表总宽度
@@ -58,7 +25,7 @@
     margin-top:20px;
     
     h3{
-        float:left;
+        .fl();
         color:#575757;
         font:22px/@h "微软雅黑";
         width:106px;
@@ -70,13 +37,13 @@
     }
     @color:#575757;
     &_nav{  //相当于title_nav
-        float:right;
+        .fr();
         font14();
         //或者：font-size:@fs;
         color:@color;
         
         li{
-            float:left;
+            .fl();
         }
         span{
             margin:0 11px;
@@ -94,6 +61,7 @@
  @item_mr:32px;
 .content{
     margin-right:-@item_mr;
+    .clearfix();
 }
 .item{
     @w:130px;
@@ -103,7 +71,7 @@
     
     width:@w;
     height:@h;
-    float:left;
+    .fl();
     margin-right:@item_mr;
     &_img{
         height:@img_h;
