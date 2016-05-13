@@ -1,0 +1,53 @@
+.reset(){
+    *{margin:0;padding:0;}
+    ul,ol{list-style:none;}
+    a{text-decoration:none}
+    img{border:none;}
+}
+
+//清除浮动
+/*.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.clearfix{
+    zoom:1;
+}
+//这样写不行，after没有编译进入.content，换下面的写法
+*/
+.clearfix(){//加上()后，将不出现在编译后的css文件里
+    &:after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+    zoom:1;
+}
+
+.bc(){
+   margin-left:auto;
+   margin-right:auto;
+}
+.fl(@fl:left){
+    float:@fl;
+    display:inline;
+}
+.fr(@fr:right;){
+     float:@fr;
+     display:inline;
+}
+.reset();
+
+.font14(){
+    font-size:14px;
+}
+@fs:14px;//同上
+
+.rel(){
+    position:relative;
+}
+
+.abs(){
+    position:absolute;
+}
